@@ -1,1 +1,1 @@
-# I will update report and the decriptons of project soon .
+# I will update report and the descriptions of project soon .
