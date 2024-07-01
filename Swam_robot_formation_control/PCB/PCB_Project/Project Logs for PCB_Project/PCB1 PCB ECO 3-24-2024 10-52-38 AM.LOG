@@ -1,0 +1,69 @@
+Added Component: Designator=P3(HDR1X4)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=AIN1 Pin=TB1-P1_29
+Added Pin To Net: NetName=AIN1 Pin=U1-14
+Added Net: Name=AIN1
+Added Pin To Net: NetName=AIN2 Pin=TB1-P1_27
+Added Pin To Net: NetName=AIN2 Pin=U1-15
+Added Net: Name=AIN2
+Added Pin To Net: NetName=BIN1 Pin=TB1-P1_31
+Added Pin To Net: NetName=BIN1 Pin=U1-12
+Added Net: Name=BIN1
+Added Pin To Net: NetName=BIN2 Pin=TB1-P1_32
+Added Pin To Net: NetName=BIN2 Pin=U1-11
+Added Net: Name=BIN2
+Added Pin To Net: NetName=EN_DRIVER Pin=TB1-P1_28
+Added Pin To Net: NetName=EN_DRIVER Pin=U1-13
+Added Net: Name=EN_DRIVER
+Added Pin To Net: NetName=ENC_A_L Pin=P1-3
+Added Pin To Net: NetName=ENC_A_L Pin=TB1-P1_15
+Added Net: Name=ENC_A_L
+Added Pin To Net: NetName=ENC_A_R Pin=P4-3
+Added Net: Name=ENC_A_R
+Added Pin To Net: NetName=ENC_B_L Pin=P1-4
+Added Net: Name=ENC_B_L
+Added Pin To Net: NetName=ENC_B_R Pin=P4-4
+Added Pin To Net: NetName=ENC_B_R Pin=TB1-P1_11
+Added Net: Name=ENC_B_R
+Added Pin To Net: NetName=GND Pin=P1-2
+Added Pin To Net: NetName=GND Pin=P3-4
+Added Pin To Net: NetName=GND Pin=P4-2
+Added Pin To Net: NetName=GND Pin=TB1-P1_1
+Added Pin To Net: NetName=GND Pin=TB1-P1_2
+Added Pin To Net: NetName=GND Pin=U1-8
+Added Pin To Net: NetName=GND Pin=U1-9
+Added Net: Name=GND
+Added Pin To Net: NetName=M+_L Pin=P1-1
+Added Pin To Net: NetName=M+_L Pin=U1-5
+Added Net: Name=M+_L
+Added Pin To Net: NetName=M+_R Pin=P4-1
+Added Pin To Net: NetName=M+_R Pin=U1-6
+Added Net: Name=M+_R
+Added Pin To Net: NetName=M-_L Pin=P1-6
+Added Pin To Net: NetName=M-_L Pin=U1-4
+Added Net: Name=M-_L
+Added Pin To Net: NetName=M-_R Pin=P4-6
+Added Pin To Net: NetName=M-_R Pin=U1-7
+Added Net: Name=M-_R
+Added Pin To Net: NetName=NetP2_1 Pin=P2-1
+Added Pin To Net: NetName=NetP2_1 Pin=U1-3
+Added Net: Name=NetP2_1
+Added Pin To Net: NetName=NetP2_2 Pin=P2-2
+Added Pin To Net: NetName=NetP2_2 Pin=U1-1
+Added Net: Name=NetP2_2
+Added Pin To Net: NetName=RX Pin=P3-2
+Added Pin To Net: NetName=RX Pin=TB1-P1_13
+Added Net: Name=RX
+Added Pin To Net: NetName=TX Pin=P3-3
+Added Pin To Net: NetName=TX Pin=TB1-P1_14
+Added Net: Name=TX
+Added Pin To Net: NetName=VCC Pin=P1-5
+Added Pin To Net: NetName=VCC Pin=P3-1
+Added Pin To Net: NetName=VCC Pin=P4-5
+Added Pin To Net: NetName=VCC Pin=TB1-P2_5
+Added Pin To Net: NetName=VCC Pin=TB1-P2_6
+Added Net: Name=VCC
+Added Member To Class: ClassName=Sheet1 Member=Component P3 Header 4
+Added Room: Name=Sheet1

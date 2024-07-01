@@ -1,0 +1,11 @@
+Added Pin To Net: NetName=GND Pin=TB1-P1_5
+Added Pin To Net: NetName=ENC_A_R Pin=TB1-P1_12
+Added Pin To Net: NetName=GND Pin=TB1-P1_23
+Added Pin To Net: NetName=GND Pin=TB1-P1_49
+Added Pin To Net: NetName=GND Pin=TB1-P1_50
+Added Pin To Net: NetName=GND Pin=TB1-P2_1
+Added Pin To Net: NetName=GND Pin=TB1-P2_2
+Added Pin To Net: NetName=ENC_B_L Pin=TB1-P2_28
+Added Pin To Net: NetName=GND Pin=TB1-P2_49
+Added Pin To Net: NetName=GND Pin=TB1-P2_50
+Added Room: Name=Sheet1
