@@ -9,7 +9,7 @@ baud_rate = 115200  # Set your baud rate
 
 cmd = "RUN"
 L = 0.4
-vmax = 0.17
+vmax = 0.15
 
 global leader
 global follower
@@ -79,9 +79,9 @@ follower = Robot("RUN", -L, 0, np.deg2rad(0))
 v_r = 0
 v_l = 0
 # Initialize PID controllers
-pid_vx = PID(15, 0.01, 0.01)
-pid_vy = PID(15, 0.01 ,0.01)
-
+pid_vx = PID(15, 0.01, 0.4)
+pid_vy = PID(15, 0.01 ,0.4)
+pid_w = PID(15,0.01,0.3)
 # Create socket object
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect(('192.168.169.84', 12345))
@@ -144,21 +144,25 @@ try:
         leader_semaphore.acquire()
         x_d = leader.x - L * np.cos(np.deg2rad(leader.theta))
         y_d = leader.y - L * np.sin(np.deg2rad(leader.theta))
+        theta_d = leader.theta
         leader_semaphore.release()
         # Calculate error ex and ey
         follower_semaphore.acquire()
         x_error = x_d - follower.x
         y_error = y_d - follower.y
+        theta_error = np.deg2rad(theta_d) - np.deg2rad(follower.theta)
         follower_semaphore.release()
         # Calculate PID output vx and vy 
         vx = pid_vx.update(x_error)
         vy = pid_vy.update(y_error)
+        w_adjust = pid_w.update(theta_error)
         # Calculate v and w (omega)
         follower_semaphore.acquire()
         v = vx * np.cos(np.deg2rad(follower.theta)) + vy * np.sin(np.deg2rad(follower.theta))
         w =   1 * (-vx * np.sin(np.deg2rad(follower.theta)) + vy * np.cos(np.deg2rad(follower.theta))) / 0.0325
         # w = (-vx * np.sin(np.deg2rad(follower.theta)) + vy * np.cos(np.deg2rad(follower.theta))) 
         # print("vx:{:0.2f},vy:{:0.2f},v:{:0.2f},w:{:0.2f}".format(vx,vy,v,w))
+
         follower_semaphore.release()
 
         # Calculate vr and vl
@@ -166,15 +170,24 @@ try:
         v_l = v - (w * 0.2 / 2)
         v_r, v_l = limit_velocity(v_r, v_l)
 
-        print("velocity: !cmd:{}#v_r:{}#v_l:{}".format(follower.cmd, v_r, v_l))
+        # print("velocity: !cmd:{}#v_r:{}#v_l:{}".format(follower.cmd, v_r, v_l))
         # Stop condition
         leader_semaphore.acquire()
         follower_semaphore.acquire()
-        # if np.sqrt((leader.x - follower.x)**2 + (leader.y - follower.y)**2) <= 0.4:
+
+        # if(np.sqrt((x_d - follower.x)**2 + (y_d - follower.y)**2) <= 0.005) and (leader.theta -follower.x)<=10:
         #     v_r = v_l = 0
-        #     follower.cmd = "STP"
-        if np.sqrt((x_d - follower.x)**2 + (y_d - follower.y)**2) <= 0.03:
-            v_r = v_l = 0
+        # if np.sqrt((leader.x - follower.x)**2 + (leader.y - follower.y)**2) <= 0.3:
+        #     v_r = v_l = 0
+        #     # follower.cmd = "STP"
+        if(np.sqrt((x_d - follower.x)**2 + (y_d - follower.y)**2) <= 0.05):
+            v_r  = (w_adjust * 0.2)/2
+            v_l  = - (w_adjust*0.2)/2
+            if(np.deg2rad(leader.theta) - np.deg2rad(follower.theta)) <=0.001:
+                v_r = v_l = 0
+            
+            
+
 
         leader_semaphore.release()
         follower_semaphore.release()
