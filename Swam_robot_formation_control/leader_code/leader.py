@@ -179,6 +179,9 @@ def loss_function(x):
 
 
 
+
+
+
 def is_valid(circles, p):
     """
     Check if the point p is valid (i.e. doesn't go into obstacles).
@@ -199,6 +202,7 @@ def is_valid(circles, p):
                 circles[i].how_to_exit_y(point_p.y) + to_add.y,
             )
     return to_add
+        
 def particle_swarm_optimization(
     max_iterations, swarm_size, max_vel, step_size, inertia, c1, c2, circles
 ):
@@ -271,16 +275,14 @@ def particle_swarm_optimization(
                 particle_help = is_valid(circles, particles_loc[particle_i, dim_i, :])
                 particles_loc[particle_i, dim_i, 0] += particle_help.x
                 particles_loc[particle_i, dim_i, 1] += particle_help.y
-                if abs(particle_help.x) > 0.01 or abs(particle_help.y) > 0.01:
+                if abs(particle_help.x) > 0.0 or abs(particle_help.y) > 0.0:
                     dim_i -= 1
                 dim_i += 1
             # for the new location, check if this is a new local or global best (if it's valid)
             particle_error = loss_function(particles_loc[particle_i, :])
             if particle_error < particles_lowest_loss[particle_i]:  # local best
                 particles_lowest_loss[particle_i] = particle_error
-                particles_best_location[particle_i, :] = particles_loc[
-                    particle_i, :
-                ].copy()
+                particles_best_location[particle_i, :] = particles_loc[particle_i,:].copy()
             if particle_error < global_lowest_loss:  # global best
                 global_lowest_loss = particle_error
                 global_best_location = particles_loc[particle_i, :].copy()
@@ -297,21 +299,25 @@ try:
     # START = ob.Point(1, 1)
     # END = ob.Point(10, 20)
     START = ob.Point(0,0)
-    # END = ob.Point(12.5,15)
     END = ob.Point(20,8)
+
     #test case 1 
-    # obstacle1 = ob.Obstacle_Circle(1.0, ob.Point(2, 6))
-    # obstacle2 = ob.Obstacle_Circle(1.0, ob.Point(5, 1))  
-    # obstacle3 = ob.Obstacle_Circle(1.0, ob.Point(8, 4))
-    # obstacle4 = ob.Obstacle_Circle(1.0, ob.Point(10, 1))#
-    #test case 2
-    obstacle1 = ob.Obstacle_Circle(1.0, ob.Point(6, 8))  
+    # obstacle1 = ob.Obstacle_Circle(1.0, ob.Point(8, 4))
+    # obstacle2 = ob.Obstacle_Circle(1.0, ob.Point(10, 2))  
+    # obstacle3 = ob.Obstacle_Circle(1.0, ob.Point(10, 6))
+    # obstacle4 = ob.Obstacle_Circle(1.0, ob.Point(12, 4))
+    
+    ##test case 2
+    obstacle1 = ob.Obstacle_Circle(1.0, ob.Point(4, 8))  
     obstacle2 = ob.Obstacle_Circle(1.0, ob.Point(10, 4))
-    obstacle3 = ob.Obstacle_Circle(1.0, ob.Point(14, 2))
+    obstacle3 = ob.Obstacle_Circle(1.0, ob.Point(12, 2))
     obstacle4 = ob.Obstacle_Circle(1.0, ob.Point(16, 9))
 
-    #test case 3
-
+    ##test case 3
+    # obstacle1 = ob.Obstacle_Circle(1.0, ob.Point(2, 8))
+    # obstacle2 = ob.Obstacle_Circle(1.0, ob.Point(6, 1))  
+    # obstacle3 = ob.Obstacle_Circle(1.0, ob.Point(8, 4))
+    # obstacle4 = ob.Obstacle_Circle(1.0, ob.Point(10, 1))
 
 
     obstacles = [obstacle1, obstacle2, obstacle3,obstacle4]

@@ -33,7 +33,7 @@ class Obstacle_Circle:
         """
 
         # return (p.x - self.C.x) ** 2 + (p.y - self.C.y) ** 2 <= self.r**2
-        return (p.x - self.C.x) ** 2 + (p.y - self.C.y) ** 2 <= (self.r + 2.7)**2
+        return (p.x - self.C.x)**2 + (p.y - self.C.y)**2 <= (self.r + 2.8)**2
 
 
     def how_to_exit_y(self, y):

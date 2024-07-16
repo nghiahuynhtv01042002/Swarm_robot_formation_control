@@ -9,7 +9,7 @@ baud_rate = 115200  # Set your baud rate
 
 cmd = "RUN"
 L = 0.4
-vmax = 0.15
+vmax = 0.155# origibal 0.16
 
 global leader
 global follower
@@ -79,8 +79,8 @@ follower = Robot("RUN", -L, 0, np.deg2rad(0))
 v_r = 0
 v_l = 0
 # Initialize PID controllers
-pid_vx = PID(15, 0.01, 0.4)
-pid_vy = PID(15, 0.01 ,0.4)
+pid_vx = PID(15, 0.05, 0.4)
+pid_vy = PID(15, 0.05 ,0.4)
 pid_w = PID(15,0.01,0.3)
 # Create socket object
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -177,13 +177,16 @@ try:
 
         # if(np.sqrt((x_d - follower.x)**2 + (y_d - follower.y)**2) <= 0.005) and (leader.theta -follower.x)<=10:
         #     v_r = v_l = 0
-        # if np.sqrt((leader.x - follower.x)**2 + (leader.y - follower.y)**2) <= 0.3:
-        #     v_r = v_l = 0
-        #     # follower.cmd = "STP"
+        if np.sqrt((leader.x - follower.x)**2 + (leader.y - follower.y)**2) <= 0.385:
+            v_r  = (w_adjust * 0.2)/2
+            v_l  = -(w_adjust*0.2)/2
+            if(np.deg2rad(leader.theta) - np.deg2rad(follower.theta)) <=0.05: # 0.1745
+                v_r = v_l = 0
+
         if(np.sqrt((x_d - follower.x)**2 + (y_d - follower.y)**2) <= 0.05):
             v_r  = (w_adjust * 0.2)/2
-            v_l  = - (w_adjust*0.2)/2
-            if(np.deg2rad(leader.theta) - np.deg2rad(follower.theta)) <=0.001:
+            v_l  = -(w_adjust*0.2)/2
+            if(np.deg2rad(leader.theta) - np.deg2rad(follower.theta)) <=0.05: #0.1745
                 v_r = v_l = 0
             
             
