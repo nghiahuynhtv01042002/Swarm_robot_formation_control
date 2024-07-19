@@ -177,7 +177,7 @@ try:
         follower_semaphore.acquire()
 
 
-        if(np.sqrt((x_d - follower.x)**2 + (y_d - follower.y)**2) <= 0.12):
+        if(np.sqrt((x_d - follower.x)**2 + (y_d - follower.y)**2) <= 0.11):
             v_r  = (w_adjust * 0.2)/2
             v_l  = -(w_adjust*0.2)/2
             if(np.deg2rad(leader.theta) - np.deg2rad(follower.theta)) <=0.05: #0.1745
