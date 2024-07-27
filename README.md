@@ -16,8 +16,8 @@ This project involves the design and implementation of a mobile robots system fo
 
 To see the system in action, check out the following demonstrations:
 
-- [Demo 1: Robot Formation Control](https://youtu.be/nGleLVJwCFw?si=EQ4eTj2TXlfPAPOJ)
-- [Demo 2: Path Planning & Data Exchange](https://youtu.be/kxA-t1RKV8c?si=lNSHbeRf_flBM_bW)
+- [Demo 1: Robot Formation Control 1](https://youtu.be/nGleLVJwCFw?si=EQ4eTj2TXlfPAPOJ)
+- [Demo 2: Robot Formation Control 2](https://youtu.be/kxA-t1RKV8c?si=lNSHbeRf_flBM_bW)
 
 ## Technologies Used
 
