@@ -21,11 +21,15 @@ To see the system in action, check out the following demonstrations:
 
 ## Technologies Used
 
-- **Microcontroller**: STM32F411
-- **Motor Driver**: DVR8833
-- **Development Environment**: Altium Designer, Qt GUI
-- **Path Planning Algorithm**: Particle Swarm Optimization (PSO)
-- **Communication Protocol**: TCP/IP via Sockets
+- **Microcontroller:** STM32F411.
+- **Motor Driver:** DVR8833.
+- **Development Environment:** Altium Designer, Qt GUI, Python,stm32cubeide.
+- **Path Planning Algorithm:** Particle Swarm Optimization (PSO).
+- **Control Algorithm:** PID control for angular velocity of the leader robot and position control of the follower robot.
+- **Communication Protocol:** TCP/IP via Sockets, UART between MCU and Jetson Nano/Raspberry Pi.
+- **Synchronization**: Multithreading and semaphores for data synchronization in the follower robot.
+- **Data Visualization:** Qt for GUI, Python's matplotlib for plotting.
+- **Computing Platforms:** Jetson Nano, Raspberry Pi.
 
 ## Installation & Usage
 
