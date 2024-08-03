@@ -199,9 +199,6 @@ try:
         #         v_r = v_l = 0
 
             
-            
-
-
         leader_semaphore.release()
         follower_semaphore.release()
         time.sleep(0.1)
