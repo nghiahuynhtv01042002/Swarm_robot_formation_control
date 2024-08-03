@@ -11,6 +11,7 @@ This project involves the design and implementation of a mobile robots system fo
 - **Data Exchange via TCP/IP**: Utilizing TCP/IP through sockets to enable seamless data exchange between robots, facilitating effective communication and coordination.
 - **Formation Control Simulation**: Researching and simulating formation control problems to ensure that the robots can maintain desired formations and adapt to dynamic environments.
 - **PID Controller for Follower Robot**: Designing and implementing a PID controller for the follower robot to maintain precise distance and alignment with the leader robot.
+- ![System Overview:](image.png)
 
 ## Demo
 
