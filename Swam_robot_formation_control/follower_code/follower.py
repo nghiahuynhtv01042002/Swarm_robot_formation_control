@@ -7,7 +7,7 @@ import time
 # Instant parameter
 serial_port = '/dev/ttyUSB0'
 baud_rate = 115200  # Set your baud rate
-# instant parameter of follower
+
 cmd = "RUN"
 L = 0.4
 vmax = 0.16# origibal 0.16
