@@ -142,46 +142,6 @@ def loss_function(x):
     return math.sqrt(z)
 
 
-
-# def loss_function(x):
-#     """
-#     Loss function to find the shortest path including the maximum distance between consecutive points.
-
-#     Parameters:
-#         x (List[Point]): List of points representing the path of the agent.
-
-#     Returns:
-#         float: The loss function result
-#     """
-
-#     # Initialize the loss with the distance from the start to the first point
-#     z = (x[0, 0] - START.x) ** 2 + (x[0, 1] - START.y) ** 2
-#     distance_Start2End = math.sqrt((START.x - END.x)**2 + (END.y - START.y)**2)
-#     # Initialize the variable to track the maximum distance
-#     max_distance = 0
-#     penaty_distance = 0
-#     # Calculate the sum of squared distances between consecutive points and track the maximum distance
-#     for i in range(DIM - 1):
-#         distance = (x[i, 0] - x[i + 1, 0]) ** 2 + (x[i, 1] - x[i + 1, 1]) ** 2
-#         z += distance
-#         if distance > (distance_Start2End)/(DIM+1):
-#             # max_distance = distance
-#             penaty_distance +=1
-        
-    
-#     # Add the distance from the last point to the end
-#     z += (x[DIM - 1, 0] - END.x) ** 2 + (x[DIM - 1, 1] - END.y) ** 2
-#     z += 1*z
-#     # Add the maximum distance to the loss
-#     z += penaty_distance*1
-    
-#     return math.sqrt(z)
-
-
-
-
-
-
 def is_valid(circles, p):
     """
     Check if the point p is valid (i.e. doesn't go into obstacles).
@@ -291,8 +251,6 @@ def particle_swarm_optimization(
     return best_location
 
 
-
-
 try:
     DIM = 9
     # DIM = 
@@ -318,7 +276,6 @@ try:
     # obstacle2 = ob.Obstacle_Circle(1.0, ob.Point(6, 1))  
     # obstacle3 = ob.Obstacle_Circle(1.0, ob.Point(8, 4))
     # obstacle4 = ob.Obstacle_Circle(1.0, ob.Point(10, 1))
-
 
     obstacles = [obstacle1, obstacle2, obstacle3,obstacle4]
 
