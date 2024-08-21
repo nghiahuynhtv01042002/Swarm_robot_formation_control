@@ -183,7 +183,6 @@ try:
             if(np.deg2rad(leader.theta) - np.deg2rad(follower.theta)) <=0.05: #0.1745
                 v_r = v_l = 0
 
-
         # if np.sqrt((leader.x - follower.x)**2 + (leader.y - follower.y)**2) <= 0.385:
         #     # v_r = v_l = 0
         #     v_r  = (w_adjust * 0.2)/2
@@ -191,14 +190,11 @@ try:
         #     if(np.deg2rad(leader.theta) - np.deg2rad(follower.theta)) <=0.05: # 0.1745
         #         v_r = v_l = 0
 
-
         # if((np.sqrt((x_d - follower.x)**2 + (y_d - follower.y)**2) <= 0.12) or (np.sqrt((leader.x - follower.x)**2 + (leader.y - follower.y)**2) <= 0.385)):
         #     v_r  = (w_adjust * 0.2)/2
         #     v_l  = -(w_adjust*0.2)/2
         #     if(np.deg2rad(leader.theta) - np.deg2rad(follower.theta)) <=0.05: #0.1745
         #         v_r = v_l = 0
-
-            
         leader_semaphore.release()
         follower_semaphore.release()
         time.sleep(0.1)
